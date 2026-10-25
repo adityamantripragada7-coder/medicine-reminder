@@ -1,0 +1,20 @@
+:root {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #26332e;
+  background: #f4f7f5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --green: #3f8f78;
+  --green-dark: #2f7461;
+  --green-soft: #e6f2ed;
+  --border: #dde5e1;
+  --muted: #738179;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; background: #f4f7f5; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+#root { min-height: 100vh; }
