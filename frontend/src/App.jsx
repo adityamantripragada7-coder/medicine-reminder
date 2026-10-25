@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Bell, Menu } from 'lucide-react'
 import Sidebar from './components/Sidebar'
 import Dashboard from './pages/Dashboard'
+import Medicines from './pages/Medicines'
 import PlaceholderPage from './pages/PlaceholderPage'
 import './App.css'
 
@@ -24,6 +25,7 @@ function App() {
 
   const renderPage = () => {
     if (activePage === 'dashboard') return <Dashboard onNavigate={navigate} />
+    if (activePage === 'medicines') return <Medicines />
     const [title, description] = pageCopy[activePage]
     return <PlaceholderPage title={title} description={description} />
   }
