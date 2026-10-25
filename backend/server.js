@@ -14,6 +14,10 @@ app.use(express.json({ limit: '1mb' }))
 app.get('/api/health', (request, response) => {
   response.status(200).json({ status: 'ok', service: 'medicine-reminder-api' })
 })
+app.get('/api/database-status', (request, response) => {
+  const mongoose = require('mongoose')
+  response.status(200).json({ status: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected' })
+})
 app.use('/api/medicines', medicineRoutes)
 app.use(errorHandler)
 
