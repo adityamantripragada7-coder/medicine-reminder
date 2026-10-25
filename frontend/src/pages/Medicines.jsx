@@ -69,7 +69,18 @@ function Medicines() {
     setSaving(true)
     setError('')
     try {
-      const payload = { ...form, dosage: Number(form.dosage), reminderTimes: form.reminderTimes.filter(Boolean) }
+      const payload = {
+        name: form.name.trim(),
+        dosage: Number(form.dosage),
+        dosageUnit: form.dosageUnit,
+        frequency: form.frequency,
+        reminderTimes: form.reminderTimes.filter(Boolean),
+        startDate: form.startDate,
+        endDate: form.endDate,
+        instructions: form.instructions.trim(),
+        notes: form.notes.trim(),
+        scheduleStatus: form.scheduleStatus || 'active'
+      }
       if (editingId) await medicinesApi.update(editingId, payload)
       else await medicinesApi.create(payload)
       setNotice(editingId ? 'Medicine updated.' : 'Medicine added.')

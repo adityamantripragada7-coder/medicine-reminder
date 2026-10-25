@@ -5,8 +5,11 @@ async function request(path, options = {}) {
     headers: { 'Content-Type': 'application/json', ...options.headers },
     ...options,
   })
-  const data = await response.json().catch(() => ({}))
-  if (!response.ok) throw new Error(data.message || 'Request failed')
+  const data = await response.json().catch(() => null)
+  if (!response.ok) {
+    const message = data?.message || `Request failed (${response.status})`
+    throw new Error(message)
+  }
   return data
 }
 
